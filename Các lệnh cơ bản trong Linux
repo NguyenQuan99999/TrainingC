@@ -190,3 +190,113 @@ drwxr-xr-x    60   root              1536  Jul 13 14:18 ..
 ----------    1    teacher   class   4210  May 1 08:27 .profile
 -rwxr-xr-x    1    teacher   class   1948  May 12 13:42 memo
 $
+----------------------Quyền tập tin
+Mỗi tập tin có 3 thuộc tính:
+wner permissions − The owner's permissions determine what actions the owner of the file can perform on the file.
+
+Group permissions − The group's permissions determine what actions a user, who is a member of the group that a file belongs to, can perform on the file.
+
+Other (world) permissions − The permissions for others indicate what action all other users can perform on the file.
+-Lệnh chmod
+$chmod o+wx testfile
+$ls -l testfile
+-rwxrwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile
+$chmod u-x testfile
+$ls -l testfile
+-rw-rwxrwx  1 amrood   users 1024  Nov 2 00:10  testfile
+$chmod g = rx testfile
+$ls -l testfile
+-rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile
+Giải thích:
+Lệnh chmod o+wx testfile:
+
+chmod là lệnh dùng để thay đổi quyền truy cập file.
+o+wx có nghĩa là thêm quyền ghi (write, w) và thực thi (execute, x) cho người dùng khác (others) vào file testfile.
+
+o là other
+u là user
+g là group
+Sau đây là cách bạn có thể kết hợp các lệnh này trên một dòng duy nhất −
+
+$chmod o+wx,u-x,g = rx testfile
+$ls -l testfile
+-rw-r-xrwx  1 amrood   users 1024  Nov 2 00:10  testfile
+Sử dụng chmod với Quyền tuyệt đối
+Cách thứ hai để sửa đổi quyền bằng lệnh chmod là sử dụng một số để chỉ định từng nhóm quyền cho tệp.
+
+Mỗi quyền được gán một giá trị, như bảng sau đây hiển thị, và tổng của mỗi bộ quyền sẽ cung cấp một con số cho bộ quyền đó.
+
+Con số	Biểu diễn phép bát phân	Tham khảo
+0	Không cho phép	---
+1	Thực hiện quyền	--x
+2	Viết quyền	-v-
+3	Quyền thực thi và ghi: 1 (thực thi) + 2 (ghi) = 3	-wx
+4	Đọc quyền	r--
+5	Quyền đọc và thực thi: 4 (đọc) + 1 (thực thi) = 5	r-x
+6	Quyền đọc và ghi: 4 (đọc) + 2 (ghi) = 6	rw-
+7	Tất cả các quyền: 4 (đọc) + 2 (ghi) + 1 (thực thi) = 7	rwx
+Đây là một ví dụ sử dụng tệp testfile. Chạy ls -1 trên tệp testfile cho thấy quyền của tệp như sau −
+
+$ls -l testfile
+-rwxrwxr--  1 amrood   users 1024  Nov 2 00:10  testfile
+Sau đó, mỗi lệnh chmod mẫu từ bảng trước đó được chạy trên tệp thử nghiệm, theo sau là ls –l , để bạn có thể thấy những thay đổi về quyền −
+
+$ chmod 755 testfile
+$ls -l testfile
+-rwxr-xr-x  1 amrood   users 1024  Nov 2 00:10  testfile
+$chmod 743 testfile
+$ls -l testfile
+-rwxr---wx  1 amrood   users 1024  Nov 2 00:10  testfile
+$chmod 043 testfile
+$ls -l testfile
+----r---wx  1 amrood   users 1024  Nov 2 00:10  testfile
+-Thay đổi chủ sở hữu và nhóm
+$ chown user filelist    Lệnh chown thay đổi quyền sở hữu của một tệp
+ Ví dụ sau đây sẽ giúp bạn hiểu khái niệm này −
+
+$ chown amrood testfile
+$
+Thay đổi chủ sở hữu của tệp đã cho thành người dùng amrood .
+
+Thay đổi quyền sở hữu nhóm
+Lệnh chgrp thay đổi quyền sở hữu nhóm của một tệp. Cú pháp cơ bản như sau −
+
+$ chgrp group filelist
+Giá trị của nhóm có thể là tên của nhóm trên hệ thống hoặc ID nhóm (GID) của nhóm trên hệ thống.
+
+Ví dụ sau đây giúp bạn hiểu khái niệm −
+
+$ chgrp special testfile
+$
+Thay đổi nhóm của tệp đã cho thành nhóm special...
+...
+-----------------------------Environment
+Biến là chuỗi ký tự mà chúng ta gán giá trị. Giá trị được gán có thể là số, văn bản, tên tệp, thiết bị hoặc bất kỳ loại dữ liệu nào khác.
+
+Ví dụ, đầu tiên chúng ta đặt một biến TEST và sau đó chúng ta truy cập giá trị của nó bằng lệnh echo −
+
+$TEST="Unix Programming"
+$echo $TEST
+Nó tạo ra kết quả sau.
+
+Unix Programming
+
+-------------------------------Lệnh grep
+Lệnh grep
+Lệnh grep tìm kiếm một tệp hoặc các tệp để tìm các dòng có một mẫu nhất định. Cú pháp là −
+
+$grep pattern file(s)
+---------------------------Lệnh sort
+Lệnh sort sắp xếp các dòng văn bản theo thứ tự bảng chữ cái hoặc số. Ví dụ sau đây sắp xếp các dòng trong tệp thực phẩm −
+
+$sort food
+Afghani Cuisine
+Bangkok Wok
+Big Apple Deli
+Isle of Java
+
+Mandalay
+Sushi and Sashimi
+Sweet Tooth
+Tio Pepe's Peppers
+$
