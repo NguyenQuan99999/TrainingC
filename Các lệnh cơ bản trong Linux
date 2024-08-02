@@ -6,3 +6,187 @@ $ mkdir testing
 Nếu nguời dùng muốn vào một thư mục cụ thể thì dùng cd command
 # command to change the direcroty in Linux
 $cd testing
+
+Linux Shell là gì?
+Người dùng giao tiếp với Kernel thông qua một chương trình được gọi là shell . Shell là trình thông dịch dòng lệnh; nó dịch các lệnh do người dùng nhập vào và chuyển đổi chúng thành ngôn ngữ mà kernel có thể hiểu được.
+Kernel − Kernel là trái tim của hệ điều hành Linux. Nó tương tác với phần cứng và hầu hết các tác vụ như quản lý bộ nhớ, lập lịch tác vụ và quản lý tệp.
+
+Shell − Shell là tiện ích xử lý các yêu cầu của bạn. Khi bạn nhập lệnh vào terminal, shell sẽ diễn giải lệnh và gọi chương trình bạn muốn. Shell sử dụng cú pháp chuẩn cho tất cả các lệnh. C Shell, Bourne Shell và Korn Shell là những shell nổi tiếng nhất có sẵn trong hầu hết các biến thể Unix.
+
+Lệnh và Tiện ích − Có nhiều lệnh và tiện ích khác nhau mà bạn có thể sử dụng trong các hoạt động hàng ngày của mình. ftp , ssh , cp , mv , cat và grep , v.v. là một số ví dụ về lệnh và tiện ích. Có hơn 250 lệnh chuẩn cùng nhiều lệnh khác được cung cấp thông qua phần mềm của bên thứ 3. Tất cả các lệnh đều đi kèm với nhiều tùy chọn khác nhau.
+
+Tệp và Thư mục − Tất cả dữ liệu của Unix được tổ chức thành các tệp. Tất cả các tệp sau đó được tổ chức thành các thư mục. Các thư mục này được tổ chức thành một cấu trúc giống như cây gọi là hệ thống tệp .
+
+Ví dụ, để kiểm tra lịch, dùng lệnh cal như sau
+$cal
+lệnh ls để liệt kê tất cả các tệp hoặc thư mục có sẵn trong một thư mục.
+ví dụ lệnh ls với tùy chọn -l
+
+$ ls -l
+
+lệnh cd đưa bạn vào 1 thư mục. khi quay lại dùng lệnh 
+$ cd..
+Linux sử dụng dấu chấm đơn. để biểu diễn thư mục hiện tại, dấu chấm kép .. để biểu diễn thư mục cha
+
+
+bạn là ai?
+$ whoami
+
+đôi khi bạn có thể muốn biết ai đang đăng nhập vào máy tính cùng lúc, dùng lệnh 
+$ user
+$ who
+$ w
+
+Kiểm tra việc sử dụng đĩa
+$ df -h
+
+--------------------------
+Quản lý tập tin trong Linux
+có 3 loại tệp cơ bản: 
+Tệp thông thường
+Thư mục
+Tệp đặc biệt
+
+- Lệnh quản lý tập tin
+
+1. Liệt kê các tập tin
+$ ls
+lệnh ls hỗ trợ tùy chọn -l để giúp bạn có thêm thông tin về các tệp được liệt kê
+
+- Siêu ký tự trong Linux
+Linux Metacharacters có ý nghĩa đặc biệt trong Unix. Ví dụ, * và ? là metacharacters. Chúng ta sử dụng * để khớp với 0 hoặc nhiều ký tự, dấu chấm hỏi ( ? ) khớp với một ký tự duy nhất.
+VD:
+$ ls ch*.doc
+Hiển thị tất cả các tệp có tên bắt đầu bằng ch và kết thúc bằng .doc
+* hoạt động như ký tự meta khớp với bất kỳ kí tự nào
+Để liệt kê các tệp ẩn, chúng ta dùng tùy chọn -a
+$ ls -a
+
+- Tạo tập tin trong Linux
+...
+- Hiển thị nội dung của một tập tin
+$ cat filename
+Tùy chọn -b sẽ hiển thị số dòng
+
+- Đếm số từ trong một tệp
+$ wc filename
+có thể làm với nhiều tệp
+$ wc filename1 filename2 filename3
+
+- Sao chép tập tin hiện có
+$ cp filename copyfile
+
+- Đổi tên tập tin
+$ mv old_file new_file
+
+- Xóa tệp tin
+$ rm filename
+Có thể xóa nhiều tệp cùng lúc
+
+- Tạo liên kết trong các tập tin
+Lệnh để tạo liên kết tượng trưng trên tên tệp
+$ ln -s filename symlink
+
+Lệnh tạo ra liên kết cứng trên một tệp hiện có
+$ ln filename hardlink
+
+Kiểm tra các liên kết đã tạo
+$ ls -l
+
+----------------------------- Thư mục
+/bin  Nhị phân
+/boot  Các tệp cấu hình khởi động
+/dev  Tệp thiết bị hệ thống    
+/etc  Tập tin cấu hình, tập lệnh khởi động
+/home  Thư mục gốc
+/lib  Thư viện
+/lost+found  Tìm kiếm bị mất + tìm thấy cho các tập tin tồn tại trong thư mục gốc
+/media  ổ cứng, CD, vv
+/mnt  hệ thống tập tin được gắn thủ công trên ổ cứng của bạn
+/opt  ứng dụng của bên thứ 3 được cài đặt
+/proc  Lưu trữ thông tin về trạng thái hệ thống
+/root  Thư mục gốc của người dùng
+/sbin  Hệ thống nhị phân
+/srv  Chứa các tập tin được phục vụ cho các hệ thống khác
+/sys  tập tin hệ thống
+/tmp  hồ sơ tạm thời
+/usr  ứng dụng truy cập tập tin mà mọi người đều có thể truy cập
+/var  các tập tin biến
+
+Bạn có thể vào thư mục home của mình bất cứ lúc nào bằng câu lệnh
+$ cd ~
+Vào thư mục home của bất kỳ người khác, dùng lệnh:
+$ cd ~username
+Đến thư mục cuối cùng của bạn, dùng lệnh sau:
+$ cd -
+Để xác định vị trí của bạn trong hệ thống, dùng lệnh:
+$ pwd
+
+Để liệt kê các tập tin trong một thư mục:
+$ ls dirname
+ví dụ liệt kê tất cả các tệp có trong thư mục /usr/local
+$ ls /usr/local
+
+-Tạo thư mục
+$mkdir dirname
+Ví dụ lệnh $mkdir mydir . tạo thư mục mydir trong thư mục hiện tại.
+$mkdir /tmp/test-dir
+Thư mục test - dir được tạo trong thư mục /tmp.
+Nếu bạn cung cấp nhiều hơn một thư mục trên dòng lệnh, lệnh mkdir sẽ tạo ra từng thư mục
+-Tạo thư mục direction
+Bây giờ chúng ta sẽ hiểu cách tạo thư mục cha. Đôi khi khi bạn muốn tạo một thư mục, thư mục cha hoặc các thư mục của nó có thể không tồn tại. Trong trường hợp này, mkdir đưa ra thông báo lỗi như sau −
+
+$mkdir /tmp/amrood/test
+mkdir: Failed to make directory "/tmp/amrood/test"; 
+No such file or directory
+$
+Trong những trường hợp như vậy, bạn có thể chỉ định tùy chọn -p cho lệnh mkdir . Nó tạo tất cả các thư mục cần thiết cho bạn. Ví dụ −
+
+$mkdir -p /tmp/amrood/test
+$
+Lệnh trên tạo ra tất cả các thư mục cha cần thiết.
+-Xóa Thư mục
+Có thể xóa thư mục bằng lệnh rmdir như sau −
+
+$rmdir dirname
+$
+Lưu ý − Để xóa một thư mục, hãy đảm bảo rằng thư mục đó trống, nghĩa là không có bất kỳ tệp hoặc thư mục con nào bên trong thư mục này.
+
+Bạn có thể xóa nhiều thư mục cùng một lúc như sau −
+
+$rmdir dirname1 dirname2 dirname3
+$
+Lệnh trên xóa các thư mục dirname1, dirname2 và dirname3 nếu chúng trống. Lệnh rmdir không tạo ra kết quả nếu thành công.
+-Thay đổi thư mục
+Bạn có thể sử dụng lệnh cd để làm nhiều việc hơn là chỉ thay đổi thư mục home. Bạn có thể sử dụng lệnh này để thay đổi bất kỳ thư mục nào bằng cách chỉ định đường dẫn tuyệt đối hoặc tương đối hợp lệ. Cú pháp như sau −
+
+$cd dirname
+$
+Ở đây, dirname là tên của thư mục mà bạn muốn thay đổi. Ví dụ, lệnh −
+
+$cd /usr/local/bin
+$
+Thay đổi thư mục /usr/local/bin . Từ thư mục này, bạn có thể cd đến thư mục /usr/home/amrood bằng đường dẫn tương đối sau −
+
+$cd ../../home/amrood
+$
+-Đổi tên thư mục
+Lệnh mv (di chuyển) cũng có thể được sử dụng để đổi tên một thư mục. Cú pháp như sau −
+
+$mv olddir newdir
+$
+Bạn có thể đổi tên thư mục mydir thành yourdir như sau −
+
+$mv mydir yourdir
+$
+Các thư mục . (dấu chấm) và .. (dấu chấm)
+Tên tệp . (dấu chấm) biểu thị thư mục làm việc hiện tại; và tên tệp .. (dấu chấm) biểu thị thư mục cao hơn thư mục làm việc hiện tại một cấp, thường được gọi là thư mục cha.
+
+Nếu chúng ta nhập lệnh để hiển thị danh sách các thư mục/tệp làm việc hiện tại và sử dụng tùy chọn -a để liệt kê tất cả các tệp và tùy chọn -l để cung cấp danh sách đầy đủ, chúng ta sẽ nhận được kết quả sau.
+
+$ls -la
+drwxrwxr-x    4    teacher   class   2048  Jul 16 17.56 .
+drwxr-xr-x    60   root              1536  Jul 13 14:18 ..
+----------    1    teacher   class   4210  May 1 08:27 .profile
+-rwxr-xr-x    1    teacher   class   1948  May 12 13:42 memo
+$
