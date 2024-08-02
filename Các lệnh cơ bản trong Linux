@@ -1,1 +1,8 @@
+mkdir là lệnh để tạo thư mục trong Linux
+# Command to create directory in Linux
 
+$ mkdir testing
+
+Nếu nguời dùng muốn vào một thư mục cụ thể thì dùng cd command
+# command to change the direcroty in Linux
+$cd testing
